@@ -1,10 +1,10 @@
-from django.contrib import messages
+# from django.contrib import messages
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode
 from django.utils.encoding import force_bytes
-from django.contrib.auth.tokens import default_token_generator
-from django.core.mail import EmailMessage, message
+from django.contrib.auth.tokens import default_token_generator 
+from django.core.mail import EmailMessage
 # from django.conf import settings
 
 def detectUser(user):
@@ -29,5 +29,5 @@ def send_verification_email(request, user):
     })
     to_email = user.email
     mail = EmailMessage(mail_subject, message, to=[to_email])
-    # mail.content_subtype = "html"
+#     # mail.content_subtype = "html"
     mail.send()
